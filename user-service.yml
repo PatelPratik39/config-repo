@@ -4,7 +4,8 @@ spring:
     name: user-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/usersdb
+      # uri: mongodb://localhost:27017/usersdb
+       uri: mongodb://mongodb:27017/userDb
   cloud:
     config:
       enabled: true
