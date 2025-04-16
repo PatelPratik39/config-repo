@@ -4,7 +4,8 @@ spring:
     name: order-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ordersdb
+      # uri: mongodb://localhost:27017/ordersdb
+      uri: mongodb://mongodb:27017/orderDb
   cloud:
     config:
       enabled: true
