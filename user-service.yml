@@ -1,4 +1,5 @@
 # config-repo/user-service.yml
+
 spring:
   application:
     name: user-service
@@ -6,6 +7,17 @@ spring:
   data:
     mongodb:
       uri: mongodb://mongodb:27017/userDb
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: user-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
   cloud:
     config:
@@ -15,8 +27,43 @@ eureka:
   client:
     service-url:
       defaultZone: http://eurekaserver:8761/eureka
-
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+
+
+
+# Old version - without Kafka 
+
+
+
+# spring:
+#   application:
+#     name: user-service
+
+#   data:
+#     mongodb:
+#       uri: mongodb://mongodb:27017/userDb
+
+#   cloud:
+#     config:
+#       enabled: true
+
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://eurekaserver:8761/eureka
+
+#   instance:
+#     prefer-ip-address: true
+#     lease-renewal-interval-in-seconds: 10
+#     lease-expiration-duration-in-seconds: 30
