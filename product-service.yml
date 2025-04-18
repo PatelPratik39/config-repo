@@ -48,5 +48,12 @@ resilience4j:
         slidingWindowSize: 5
         failureRateThreshold: 50
 
-server:
-  port: 8083
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
