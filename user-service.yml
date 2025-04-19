@@ -6,6 +6,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://mongodb:27017/userDb
+server:
+  port: 8081
 
   kafka:
     bootstrap-servers: kafka:9092
