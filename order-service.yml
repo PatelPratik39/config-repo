@@ -6,6 +6,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://mongodb:27017/orderDb
+server:
+  port: 8082
 
   kafka:
     bootstrap-servers: kafka:9092
