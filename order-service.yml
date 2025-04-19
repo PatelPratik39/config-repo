@@ -6,8 +6,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://mongodb:27017/orderDb
-server:
-  port: 8082
 
   kafka:
     bootstrap-servers: kafka:9092
@@ -23,6 +21,9 @@ server:
   cloud:
     config:
       enabled: true
+
+server:
+  port: 8082
 
 eureka:
   client:
@@ -51,5 +52,6 @@ management:
   endpoint:
     health:
       show-details: always
+
 
 
