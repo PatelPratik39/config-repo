@@ -1,5 +1,4 @@
 # config-repo/user-service.yml
-
 spring:
   application:
     name: user-service
@@ -26,7 +25,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eurekaserver:8761/eureka/
+      defaultZone: http://eurekaserver:8761/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -41,6 +40,7 @@ resilience4j:
         registerHealthIndicator: true
         slidingWindowSize: 5
         failureRateThreshold: 50
+
 management:
   endpoints:
     web:
@@ -49,6 +49,7 @@ management:
   endpoint:
     health:
       show-details: always
+
 
 
 
