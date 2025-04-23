@@ -5,10 +5,10 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/orderDb
+      uri: mongodb://mongodb:27017/orderDb
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     consumer:
       group-id: order-group
       auto-offset-reset: earliest
@@ -28,7 +28,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka:8761/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -50,7 +50,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://zipkin:9411/api/v2/spans
   endpoints:
     web:
       exposure:
