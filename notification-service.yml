@@ -5,6 +5,12 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/notificationDb
 
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: FULL
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
