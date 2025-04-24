@@ -23,10 +23,6 @@ spring:
     config:
       enabled: true
 
-  # zipkin:
-  #   tracing:
-  #     endpoint: http://zipkin:9411/api/v2/spans
-
   main:
     allow-bean-definition-overriding: true
 
@@ -56,6 +52,10 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId},%X{spanId}]"
 
 server:
   port: 8084
