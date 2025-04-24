@@ -32,6 +32,11 @@ spring:
   cloud:
     config:
       enabled: true
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: FULL
 
 server:
   port: 8083
