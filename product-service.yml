@@ -3,7 +3,7 @@ spring:
     name: product-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/productDb
+    url: jdbc:postgresql://localhost:5432/productdb
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -12,7 +12,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
     bootstrap-servers: kafka:9092
@@ -57,7 +59,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://zipkin:9411/api/v2/spans
       enabled: true
   endpoints:
     web:
@@ -67,4 +69,3 @@ management:
     export:
       prometheus:
         enabled: true
-
