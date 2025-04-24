@@ -3,9 +3,17 @@ spring:
   application:
     name: user-service
 
+
+
   data:
     mongodb:
       uri: mongodb://localhost:27017/userDb
+
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: FULL
 
   kafka:
     bootstrap-servers: localhost:9092
